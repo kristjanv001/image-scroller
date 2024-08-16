@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(assets/fonts/Roboto-Regular.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: "Roboto Slab";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(assets/fonts/RobotoSlab-Medium.ttf) format("truetype");
+  }
+}
+
+* {
+  @apply font-sans;
+  @apply text-neutral-seven;
+  @apply text-sm;
+}
+
+body {
+  @apply bg-neutral-one;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-serif;
+  @apply text-neutral-ten;
+}
+
+h1 {
+  @apply text-4xl;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    @apply text-5xl;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    @apply text-6xl;
+  }
+
+  * {
+    @apply text-base;
+  }
+}
