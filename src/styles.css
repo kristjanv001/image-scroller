@@ -23,7 +23,10 @@
 * {
   @apply font-sans;
   @apply text-neutral-seven;
-  @apply text-sm;
+}
+
+p, ul, li {
+  @apply text-sm
 }
 
 body {
@@ -55,7 +58,7 @@ h1 {
     @apply text-6xl;
   }
 
-  * {
+  p, ul, li {
     @apply text-base;
   }
 }
