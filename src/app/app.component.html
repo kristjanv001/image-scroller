@@ -1,4 +1,13 @@
-<h1>Latest works</h1>
-<p>Sed nec sit malesuada cursus dolor accumsan massa semper enim. Egestas vel ac consectetur enim.</p>
-
-<!-- hero mob, tabl and desktop -->
+<div class="py-12 px-4">
+  <header>
+    <h1 class="mb-4">Latest works</h1>
+    <p>Sed nec sit malesuada cursus dolor accumsan massa semper enim. Egestas vel ac consectetur enim.</p>
+  </header>
+  <ul class="flex items-center w-full space-x-5">
+    @for (filter of filters(); track $index) {
+      <li>
+        <button>{{ filter }}</button>
+      </li>
+    }
+  </ul>
+</div>
