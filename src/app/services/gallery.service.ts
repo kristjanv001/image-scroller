@@ -1,10 +1,22 @@
-import { Injectable, signal, computed } from "@angular/core";
+import { Injectable, signal, computed, inject } from "@angular/core";
 import { Filter } from "../models/filter";
+import { Photo } from "../models/photo";
+import { HttpClient } from "@angular/common/http";
+import { pipe, tap } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class GalleryService {
+  private photosUrl = "api/photos";
+  private http = inject(HttpClient);
+
+  constructor() {
+    this.http.get<any[]>(this.photosUrl).pipe(
+      tap(photos => console.log(photos))
+    ).subscribe(x => console.log(x))
+  }
+
   private state = signal<GalleryState>({
     photos: [],
     currentFilter: "All",
@@ -27,9 +39,4 @@ interface GalleryState {
   photos: Photo[];
   currentFilter: Filter;
   filters: Filter[];
-}
-
-interface Photo {
-  url: string;
-  tags: string[];
 }
