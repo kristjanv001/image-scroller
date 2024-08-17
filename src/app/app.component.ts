@@ -15,11 +15,11 @@ export class AppComponent {
 
   galleryService = inject(GalleryService);
 
-  photos = this.galleryService.photos;
+  photos = this.galleryService.filteredPhotos;
   filters = this.galleryService.filters;
   currentFilter = this.galleryService.currentFilter;
 
   onFilterChange(filter: Filter) {
-    this.galleryService.filterGallery(filter);
+    this.galleryService.changeFilter(filter);
   }
 }
