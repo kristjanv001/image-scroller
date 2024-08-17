@@ -1,17 +1,22 @@
-import { ApplicationConfig, provideZoneChangeDetection } from "@angular/core";
+import {
+  ApplicationConfig,
+  provideZoneChangeDetection,
+  importProvidersFrom,
+  provideExperimentalZonelessChangeDetection,
+} from "@angular/core";
 import { provideRouter } from "@angular/router";
-import { InMemoryWebApiModule } from "angular-in-memory-web-api";
-import { InMemoryDataService } from "./services/in-memory-data.service";
-import { provideHttpClient } from "@angular/common/http";
-import { importProvidersFrom } from "@angular/core";
-
-import { routes } from "./app.routes";
 import { provideClientHydration } from "@angular/platform-browser";
+import { InMemoryWebApiModule } from "angular-in-memory-web-api";
+import { provideHttpClient, withFetch } from "@angular/common/http";
+
+import { InMemoryDataService } from "./services/in-memory-data.service";
+import { routes } from "./app.routes";
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(),
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    // provideZoneChangeDetection({ eventCoalescing: true }),
+    provideExperimentalZonelessChangeDetection(),
+    provideHttpClient(withFetch()),
     provideRouter(routes),
     provideClientHydration(),
     importProvidersFrom(InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000 })),
