@@ -1,0 +1,13 @@
+<ul class="flex items-center space-x-2 md:space-x-5 place-self-end">
+  @for (filter of filters(); track $index) {
+    <li>
+      <button
+        (click)="onFilterChange(filter)"
+        class="border border-dashed p-1 bg-neutral-one rounded-lg"
+        [ngClass]="{ 'text-rose-seven': filter === currentFilter() }"
+      >
+        {{ filter }}
+      </button>
+    </li>
+  }
+</ul>

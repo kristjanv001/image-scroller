@@ -1,35 +1,7 @@
-<div>
-  <div class="py-12 px-4 md:py-16 md:px-8 max-w-[1072px] mx-auto">
-    <div class="lg:flex lg:items-center lg:justify-between mb-6 md:mb-8 lg:mb-10">
-      <header class="mb-6 md:mb-8 lg:mb-0 max-w-[368px]">
-        <h1 class="mb-4 md:mb-6">Latest works</h1>
-        <p>Sed nec sit malesuada cursus dolor accumsan massa semper enim. Egestas vel ac consectetur enim.</p>
-      </header>
-      <ul class="flex items-center space-x-2 md:space-x-5 place-self-end">
-        @for (filter of filters(); track $index) {
-          <li>
-            <button
-              (click)="onFilterChange(filter)"
-              [ngClass]="{ 'text-rose-seven': filter === currentFilter() }"
-              class="border border-dashed p-1 bg-neutral-one rounded-lg"
-            >
-              {{ filter }}
-            </button>
-          </li>
-        }
-      </ul>
-    </div>
-
-    <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6">
-      @for (photo of photos(); let i = $index; track photo.url) {
-        <div class="mb-4 sm:mb-6 break-inside-avoid bg-slate-300 min-h-[200px] ">
-          <img
-            [src]="'photos/' + photo.url"
-            [attr.fetchPriority]="i < 3 ? 'high' : 'low'"
-            [loading]="i < 6 ? 'eager' : 'lazy'"
-            class="rounded-md w-full" />
-        </div>
-      }
-    </div>
+<div class="py-12 px-4 md:py-16 md:px-8 max-w-[1072px] mx-auto">
+  <div class="lg:flex lg:items-center lg:justify-between mb-6 md:mb-8 lg:mb-10">
+    <app-hero />
+    <app-filters [filters]="filters()" [currentFilter]="currentFilter()" (changeFilter)="onFilterChange($event)" />
   </div>
+  <app-gallery [photos]="photos()" />
 </div>
