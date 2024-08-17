@@ -15,6 +15,7 @@ export class AppComponent {
 
   galleryService = inject(GalleryService);
 
+  photos = this.galleryService.photos;
   filters = this.galleryService.filters;
   currentFilter = this.galleryService.currentFilter;
 

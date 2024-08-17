@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { InMemoryDbService, RequestInfo } from "angular-in-memory-web-api";
 import { PhotoData } from "../data";
-import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
