@@ -1,9 +1,34 @@
-<div class="fixed inset-0 flex items-center justify-center z-50 bg-neutral-one bg-opacity-90" @bgAnimation @photoAnimation>
-  <div class="relative" >
+@if (selectedPhoto()) {
+  <div class="fixed inset-0 flex items-center justify-center z-50"  @bgFade>
+    <div class="fixed inset-0 bg-neutral-one opacity-80 "></div>
+
+    <div class="relative z-40">
+      <img
+        @photoAnimation
+        (click)="closeLightbox()"
+        [src]="'photos/' + selectedPhoto()?.url"
+        class="object-contain max-w-[90%] max-h-screen mx-auto hover:cursor-zoom-out rounded-md z-50"
+      />
+    </div>
+  </div>
+}
+
+<!-- <div
+  [@bgFade]="selectedPhoto() ? 'visible' : 'hidden'"
+  class="fixed inset-0 flex items-center justify-center z-50 ">
+  <div class="relative">
     <img
       (click)="closeLightbox()"
       [src]="'photos/' + selectedPhoto()?.url"
       class="max-w-[90%] mx-auto max-h-screen hover:cursor-zoom-out rounded-md"
     />
   </div>
-</div>
+</div> -->
+
+<!-- @bgAnimation -->
+<!-- @photoAnimation -->
+<!-- bg-neutral-one bg-opacity-100 transition ease-in-out -->
+<!-- bg-neutral-one -->
+<!-- z-50 -->
+
+<!-- [@bgFade]="selectedPhoto() ? 'visible' : 'hidden'" -->

@@ -1,26 +1,20 @@
-import { transition, trigger, style, animate } from "@angular/animations";
+import { transition, trigger, style, animate, state } from "@angular/animations";
 
 export const ANIMATIONS = {
   PHOTO_ANIMATION: trigger("photoAnimation", [
     transition(":enter", [
-      style({ opacity: 1, transform: "scale(0.96)" }),
-      animate("0.2s ease", style({ opacity: 1, transform: "scale(1)" })),
+      style({ transform: "scale(0.9)", opacity: 1 }),
+      animate("0.2s ease-out", style({ transform: "scale(1)", opacity: 1 })),
     ]),
-    transition(":leave", [
-      style({ opacity: 1, transform: "scale(1)" }), // Start from full size
-      animate("0.3s ease", style({ opacity: 0, transform: "scale(1)" })), // Fade out and scale down
-    ]),
+
+    transition(":leave", [animate("0.2s ease-in", style({ transform: "scale(0.1)", opacity: 0 }))]),
   ]),
 
-  BACKGROUND_ANIMATION: trigger("bgAnimation", [
-    transition(":enter", [
-      style({ opacity: 1 }), // Initially invisible
-      animate("0.3s ease", style({ opacity: 1 })), // Fade to visible
+  BG_FADE: trigger("bgFade", [
+    transition("void => *", [
+      style({ opacity: 0 }),
+      animate("0.2s ease-out", style({ opacity: 1 })),
     ]),
-
-    transition(":leave", [
-      style({ opacity: 1 }), // Start from visible state
-      animate("0.3s ease", style({ opacity: 0 })), // Fade out to invisible
-    ]),
+    transition("* => void", [animate(".150s ease-in", style({ opacity: 0 }))]),
   ]),
 };

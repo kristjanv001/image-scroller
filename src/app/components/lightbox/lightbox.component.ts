@@ -8,7 +8,7 @@ import { ANIMATIONS } from "../../animations";
   standalone: true,
   imports: [],
   templateUrl: "./lightbox.component.html",
-  animations: [ANIMATIONS.PHOTO_ANIMATION, ANIMATIONS.BACKGROUND_ANIMATION],
+  animations: [ANIMATIONS.PHOTO_ANIMATION, ANIMATIONS.BG_FADE],
 })
 export class LightboxComponent {
   renderer = inject(Renderer2);
