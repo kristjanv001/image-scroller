@@ -1,0 +1,9 @@
+<div class="fixed inset-0 flex items-center justify-center z-50 bg-neutral-one bg-opacity-90" @bgAnimation @photoAnimation>
+  <div class="relative" >
+    <img
+      (click)="closeLightbox()"
+      [src]="'photos/' + selectedPhoto()?.url"
+      class="max-w-[90%] mx-auto max-h-screen hover:cursor-zoom-out rounded-md"
+    />
+  </div>
+</div>
