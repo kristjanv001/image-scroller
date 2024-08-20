@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, Renderer2 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterOutlet } from "@angular/router";
 import { GalleryService } from "./services/gallery.service";
@@ -6,19 +6,19 @@ import { Filter } from "./models/filter";
 import { FiltersComponent } from "./components/filters/filters.component";
 import { GalleryComponent } from "./components/gallery/gallery.component";
 import { HeroComponent } from "./components/hero/hero.component";
-import { LightboxComponent } from "./components/lightbox/lightbox.component";
 import { LightboxService } from "./services/lightbox.service";
-import { trigger, transition, query, animateChild } from "@angular/animations";
+import { ANIMATIONS } from "./animations";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FiltersComponent, GalleryComponent, HeroComponent, LightboxComponent],
+  imports: [RouterOutlet, CommonModule, FiltersComponent, GalleryComponent, HeroComponent],
   templateUrl: "./app.component.html",
-  animations: [trigger("blub", [transition("* => void", [query("@*", [animateChild()], { optional: true })])])],
+  animations: [ANIMATIONS.PHOTO_ANIMATION, ANIMATIONS.BG_FADE],
 })
 export class AppComponent {
   title = "Photo Scroller";
+  renderer = inject(Renderer2);
   galleryService = inject(GalleryService);
   lightboxService = inject(LightboxService);
 
@@ -29,5 +29,10 @@ export class AppComponent {
 
   onFilterChange(filter: Filter) {
     this.galleryService.changeFilter(filter);
+  }
+
+  closePhoto() {
+    this.renderer.removeClass(document.body, "overflow-hidden");
+    this.lightboxService.setSelectedPhoto(null);
   }
 }

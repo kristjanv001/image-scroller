@@ -2,7 +2,7 @@
   @for (photo of photos(); let i = $index; track photo.url) {
     <div class="rounded-md mb-4 sm:mb-6 break-inside-avoid bg-slate-300 min-h-[200px] cursor-zoom-in">
       <img
-        (click)="openLightbox(photo)"
+        (click)="openPhoto(photo)"
         [src]="'photos/' + photo.url"
         class="rounded-md w-full"
       />

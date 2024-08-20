@@ -3,10 +3,19 @@
     <app-hero />
     <app-filters [filters]="filters()" [currentFilter]="currentFilter()" (changeFilter)="onFilterChange($event)" />
   </div>
-  <app-gallery [photos]="photos()" />
+  <app-gallery />
 </div>
 
+@if (selectedPhoto()) {
+  <div class="z-50 fixed inset-0 flex justify-center items-center" @photoPop>
+    <img
+      (click)="closePhoto()"
+      [src]="'photos/' + selectedPhoto()?.url"
+      class="hover:cursor-zoom-out rounded-md max-h-[90%] mx-auto"
+    />
+  </div>
+}
 
-<app-lightbox  />
-
-<!-- @blub -->
+@if (selectedPhoto()) {
+  <div class="z-40 bg-neutral-one fixed inset-0" @bgFade></div>
+}

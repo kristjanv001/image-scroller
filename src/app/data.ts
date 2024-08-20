@@ -20,5 +20,7 @@ export class PhotoData {
     { url: "ar-misael-garcia-832776-1707823.jpg", tags: ["architecture"] },
     { url: "ar-pixabay-417273.jpg", tags: ["architecture"] },
     { url: "ar-pixabay-534247.jpg", tags: ["architecture"] },
+    { url: "jeferson-gomes-24831766-6868084.jpg", tags: ["portrait"] },
+
   ];
 }

@@ -1,6 +1,7 @@
 import { Component, input, inject, Renderer2 } from "@angular/core";
 import { Photo } from "../../models/photo";
 import { LightboxService } from "../../services/lightbox.service";
+import { GalleryService } from "../../services/gallery.service";
 import { ANIMATIONS } from "../../animations";
 import { NgClass } from "@angular/common";
 
@@ -14,9 +15,11 @@ import { NgClass } from "@angular/common";
 export class GalleryComponent {
   renderer = inject(Renderer2);
   lightboxService = inject(LightboxService);
-  photos = input.required<Photo[]>(); // @todo: get from service directly
+  galleryService = inject(GalleryService)
 
-  openLightbox(photo: Photo) {
+  photos = this.galleryService.filteredPhotos;
+
+  openPhoto(photo: Photo) {
     this.renderer.addClass(document.body, 'overflow-hidden');
     this.lightboxService.setSelectedPhoto(photo);
   }
