@@ -21,3 +21,14 @@ A photo gallery app built with Angular.
 ## 💻 Live
 
 https://imgscroller.netlify.app/
+
+## 📝 Todo
+
+- [ ] Animations can be tweaked a bit for better easthetics
+- [ ] Create backend to serve images from a CDN
+- [ ] Switch to NgOptimizedImage
+- [ ] Infinite scroll (fetch images in chunks)
+- [ ] Virtual scroll?
+- [ ] Switch fonts to woff2 format
+- [ ] Photos can be liked
+- [ ] Menu bar?
