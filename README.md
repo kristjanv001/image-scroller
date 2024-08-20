@@ -24,8 +24,8 @@ https://imgscroller.netlify.app/
 
 ## 📝 Todo
 
-- [ ] Animations can be tweaked a bit for better easthetics
-- [ ] Create backend to serve images from a CDN
+- [ ] Animations can be tweaked a bit for better aesthetics
+- [ ] Create a backend to serve images from a CDN
 - [ ] Switch to NgOptimizedImage
 - [ ] Infinite scroll (fetch images in chunks)
 - [ ] Virtual scroll?
