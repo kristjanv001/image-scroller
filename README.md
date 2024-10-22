@@ -4,31 +4,23 @@
 
 ## 📋 Description
 
-A photo gallery app built with Angular.
+A photo gallery app with Angular on the frontend and Java Spring Boot on the backend. The backend app is deployed to AWS.
+Images are stored on Cloudinary. So the backend app is serving the images for the frontend.
 
 - Masonry layout
 - Angular animations
 - State management with Signals
 - Rxjs for async data
 - Zoneless change detection
-- In-memory mock database service
 
 ## 🥞 Stack
 
 - Angular
 - Tailwind
+- Spring Boot
+- Cloudinary
+- AWS
 
 ## 💻 Live
 
 https://imgscroller.netlify.app/
-
-## 📝 Todo
-
-- [ ] Animations can be tweaked a bit for better aesthetics
-- [ ] Create a backend to serve images from a CDN
-- [ ] Switch to NgOptimizedImage
-- [ ] Infinite scroll (fetch images in chunks)
-- [ ] Virtual scroll?
-- [ ] Switch fonts to woff2 format
-- [ ] Photos can be liked
-- [ ] Menu bar?
