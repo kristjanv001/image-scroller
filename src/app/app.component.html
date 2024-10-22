@@ -10,7 +10,7 @@
   <div class="z-50 fixed inset-0 flex justify-center items-center" @photoPop>
     <img
       (click)="closePhoto()"
-      [src]="'photos/' + selectedPhoto()?.url"
+      [src]="selectedPhoto()?.secure_url"
       class="hover:cursor-zoom-out rounded-md max-h-[90%] mx-auto"
     />
   </div>

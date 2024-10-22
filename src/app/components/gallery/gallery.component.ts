@@ -4,11 +4,12 @@ import { LightboxService } from "../../services/lightbox.service";
 import { GalleryService } from "../../services/gallery.service";
 import { ANIMATIONS } from "../../animations";
 import { NgClass } from "@angular/common";
+import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: "app-gallery",
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, NgOptimizedImage],
   templateUrl: "./gallery.component.html",
   animations: [ANIMATIONS.PHOTO_ANIMATION]
 })

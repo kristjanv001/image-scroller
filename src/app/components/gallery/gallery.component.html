@@ -1,10 +1,13 @@
 <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6">
-  @for (photo of photos(); let i = $index; track photo.url) {
+  @for (photo of photos(); let i = $index; track photo.asset_id) {
     <div class="rounded-md mb-4 sm:mb-6 break-inside-avoid bg-slate-300 min-h-[200px] cursor-zoom-in">
       <img
         (click)="openPhoto(photo)"
-        [src]="'photos/' + photo.url"
+        [ngSrc]="photo.secure_url"
         class="rounded-md w-full"
+        [width]="photo.width"
+        [height]="photo.height"
+        alt=""
       />
     </div>
   }

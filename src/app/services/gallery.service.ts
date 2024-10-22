@@ -9,14 +9,16 @@ import { pipe, tap, map } from "rxjs";
   providedIn: "root",
 })
 export class GalleryService {
-  private photosUrl = "api/photos";
+  // private photosUrl = "http://localhost:8080/api/images";
+  private photosUrl = "http://51.20.128.41:8080/api/images";
   private http = inject(HttpClient);
 
   // state for photos (async)
   private readonly photos = toSignal(
-    this.http.get<Photo[]>(this.photosUrl).pipe(
+    this.http.get<PhotosResponse>(this.photosUrl).pipe( // @TODO: update Photo type
+      map(respone => respone.resources),
       // map(photos => shuffleArray(photos)),
-      tap((photos) => console.log(photos)),
+      // tap((photos) => console.log(photos)),
     ),
     { initialValue: [] },
   );
@@ -57,4 +59,8 @@ function shuffleArray<T>(array: T[]): T[] {
 interface GalleryState {
   currentFilter: Filter;
   filters: Filter[];
+}
+
+interface PhotosResponse {
+  resources: Photo[]
 }
